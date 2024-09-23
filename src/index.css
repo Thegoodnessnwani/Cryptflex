@@ -27,7 +27,9 @@
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-    --radius: 0.5rem
+    --radius: 0.5rem;
+    --primary-text-color: #ffffff;
+    --background-color: #000000;
   }
   .dark {
     --background: 0 0% 3.9%;
@@ -61,10 +63,23 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-montserrat;
+    @apply bg-backgroundColor font-montserrat text-textPrimary;
   }
 
   h1 {
     @apply lg:text-[2.5rem] lg:leading-[2.8rem] font-medium
+  }
+}
+@layer utilities {
+  .text-gradient {
+    @apply bg-secondary-text-gradient text-transparent bg-clip-text;
+  }
+
+  .primary-btn-gradient {
+    /* @apply bg-radial-btn-gradient
+     */
+     background: radial-gradient(107.08% 85.59% at 86.3% 87.5%, rgba(0, 0, 0, 0.23) 0%, rgba(0, 0, 0, 0.00) 86.18%), radial-gradient(83.94% 83.94% at 26.39% 20.83%, rgba(255, 255, 255, 0.41) 0%, rgba(255, 255, 255, 0.00) 69.79%, rgba(255, 255, 255, 0.00) 100%), #1E40AF;
+
+     ;
   }
 }

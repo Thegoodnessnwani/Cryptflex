@@ -7,6 +7,11 @@ export default {
   ],
   theme: {
   	extend: {
+		backgroundImage: {
+			"secondary-text-gradient": 'linear-gradient(180deg, #1E40AF 0%, #B6C1E5 43.85%, #0D1B49 100%)',
+"radial-btn-gradient": 'radial-gradient(circle, rgba(0, 0, 0, 0.23) 0%, rgba(0, 0, 0, 0) 86.18%), radial-gradient(circle, rgba(255, 255, 255, 0.41) 0%, rgba(255, 255, 255, 0) 69.79%), #1E40AF'
+
+		},
 		fontFamily: {
 			inter: ['Inter', 'sans-serif'],
 			montserrat: ['Montserrat', 'sans-serif']
@@ -17,6 +22,8 @@ export default {
   			sm: 'calc(var(--radius) - 4px)'
   		},
   		colors: {
+			textPrimary: 'var(--primary-text-color)',
+			backgroundColor: 'var(--background-color)',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {

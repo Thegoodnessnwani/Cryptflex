@@ -1,7 +1,10 @@
 export default function App() {
     return (
-        <main>
-            <p className="font-bold text-2xl text-center">Hello I am at work</p>
-        </main>
+        <>
+            <h1 className="text-gradient text-3xl text-center font-bold">
+                Home
+            </h1>
+            <p className="text-xl text-center">Sample text</p>
+        </>
     );
 }
