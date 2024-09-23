@@ -1,3 +1,7 @@
+## Component Library
+
+This project uses **shadcn** as the component library. All shadcn components are installed directly in the `components/ui` folder via the shadcn installer. Therefore, no other components should be placed in the `components/ui` folder to maintain a clean structure.
+
 ## Custom Tailwind Utilities
 
 This project includes the following custom Tailwind CSS utilities:
