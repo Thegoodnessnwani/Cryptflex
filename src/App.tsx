@@ -7,22 +7,29 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from "./components/feature-component/navbar";
 import Main from "./components/feature-component/main";
+import Faq from "./components/feature-component/faq";
 
 export default function App() {
     return (
 			<Router>
-            <Navbar />
+				<Navbar />
 				<Routes>
-					
-                <Route
-                    path="/"
-                    element={
-                    <>
-                        <Main />
-                    </>
-                     }
-                />
-                
+					<Route
+						path="/"
+						element={
+							<>
+								<Main />
+							</>
+						}
+					/>
+					<Route
+						path="/faq"
+						element={
+							<>
+								<Faq />
+							</>
+						}
+					/>
 				</Routes>
 			</Router>
 		);

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import { Link } from "react-router-dom";
 import FeatureContainer from "../feature-component";
 import clockSVG from "../../assets/clock.svg";
@@ -7,13 +7,17 @@ import lockSVG from "../../assets/lock.svg";
 import Button from "../button-primary";
 import Trust from "../../assets/trust.svg";
 import Phone from "../../assets/phone.svg";
-import side from "../../assets/side.svg";
 import image1 from "../../assets/image1.svg";
 import image2 from "../../assets/image2.svg";
 import image3 from "../../assets/image3.svg";
+import Phone2 from "../../assets/phone2.svg";
+import files from "../../assets/Empty-Files.svg";
+import Testimonial from "./testimonial";
+import Faq from "./faq";
+import Steps from "./steps";
 
-function main ()  {
-  return (
+function main() {
+	return (
 		<div className="flex flex-col  items-center justify-center m-auto w-[85%]">
 			<div className="flex flex-col items-center justify-center gap-8 w-[70%] mt-8">
 				<img src={Trust} alt="Feature Vector" className="" />
@@ -54,17 +58,18 @@ function main ()  {
 					flexible payment plans with USDC, without incurring high-value debts.
 				</p>
 			</div>
-			<div className="flex flex-col items-center justify-center gap-8 w-[70%] mt-16">
+			<div className="flex flex-col items-center justify-center gap-8 w-[80%] mt-16">
 				<h1 className="text-gradient text-[2rem]">How It Works</h1>
 				<div className="flex flex-row gap-8">
-					<img src={Phone} alt="Feature Vector" className="w-[60%]" />
-					<img src={side} alt="Feature Vector" className="w-[60%]" />
+					<img src={Phone} alt="Feature Vector" className="w-[40%]" />
+					<Steps />
 				</div>
 			</div>
-			<div className="product-catalog">
+
+			<div className="flex flex-col items-center justify-center min-h-screen py-12">
 				<h2 className="text-center my-16 text-[1.5rem]">Product Catalog</h2>
-				<div className="cards grid grid-cols-3  m-auto items-center justify-center w-[90%] mt-8">
-					<div className="card w-[70%]">
+				<div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full max-w-6xl mx-auto">
+					<div className="card  shadow-md rounded-lg p-4">
 						<img src={image1} alt="Feature Vector" className="w-full" />
 						<div className="name-price flex justify-between mt-2">
 							<h2>Ipad Pro Max</h2>
@@ -79,7 +84,7 @@ function main ()  {
 							BUY NOW
 						</Button>
 					</div>
-					<div className="card w-[70%]">
+					<div className="card shadow-md rounded-lg p-4">
 						<img src={image2} alt="Feature Vector" className="w-full" />
 						<div className="name-price flex justify-between mt-2">
 							<h2>Ipad Pro Max</h2>
@@ -94,7 +99,52 @@ function main ()  {
 							BUY NOW
 						</Button>
 					</div>
-					<div className="card w-[70%]">
+					<div className="card shadow-md rounded-lg p-4">
+						<img src={image3} alt="Feature Vector" className="w-full" />
+						<div className="name-price flex justify-between mt-2">
+							<h2>Ipad Pro Max</h2>
+							<h2>$150</h2>
+						</div>
+						<p className="text-xs mt-2">
+							The iPad Pro Max is a top-of-the-line tablet with a large display,
+							powerful processor, and advanced features. It's ideal for
+							professionals and those who demand the best.
+						</p>
+						<Button variant="primary" className="mt-2">
+							BUY NOW
+						</Button>
+					</div>
+					<div className="card shadow-md rounded-lg p-4">
+						<img src={image1} alt="Feature Vector" className="w-full" />
+						<div className="name-price flex justify-between mt-2">
+							<h2>Ipad Pro Max</h2>
+							<h2>$150</h2>
+						</div>
+						<p className="text-xs mt-2">
+							The iPad Pro Max is a top-of-the-line tablet with a large display,
+							powerful processor, and advanced features. It's ideal for
+							professionals and those who demand the best.
+						</p>
+						<Button variant="primary" className="mt-2">
+							BUY NOW
+						</Button>
+					</div>
+					<div className="card shadow-md rounded-lg p-4">
+						<img src={image2} alt="Feature Vector" className="w-full" />
+						<div className="name-price flex justify-between mt-2">
+							<h2>Ipad Pro Max</h2>
+							<h2>$150</h2>
+						</div>
+						<p className="text-xs mt-2">
+							The iPad Pro Max is a top-of-the-line tablet with a large display,
+							powerful processor, and advanced features. It's ideal for
+							professionals and those who demand the best.
+						</p>
+						<Button variant="primary" className="mt-2">
+							BUY NOW
+						</Button>
+					</div>
+					<div className="card shadow-md rounded-lg p-4">
 						<img src={image3} alt="Feature Vector" className="w-full" />
 						<div className="name-price flex justify-between mt-2">
 							<h2>Ipad Pro Max</h2>
@@ -110,61 +160,57 @@ function main ()  {
 						</Button>
 					</div>
 				</div>
-				<div className="cards grid grid-cols-3  m-auto items-center justify-center w-[90%] mt-8">
-					<div className="card w-[70%]">
-						<img src={image1} alt="Feature Vector" className="w-full" />
-						<div className="name-price flex justify-between mt-2">
-							<h2>Ipad Pro Max</h2>
-							<h2>$150</h2>
-						</div>
-						<p className="text-xs mt-2">
-							The iPad Pro Max is a top-of-the-line tablet with a large display,
-							powerful processor, and advanced features. It's ideal for
-							professionals and those who demand the best.
-						</p>
-						<Button variant="primary" className="mt-2">
-							BUY NOW
-						</Button>
-					</div>
-					<div className="card w-[70%]">
-						<img src={image2} alt="Feature Vector" className="w-full" />
-						<div className="name-price flex justify-between mt-2">
-							<h2>Ipad Pro Max</h2>
-							<h2>$150</h2>
-						</div>
-						<p className="text-xs mt-2">
-							The iPad Pro Max is a top-of-the-line tablet with a large display,
-							powerful processor, and advanced features. It's ideal for
-							professionals and those who demand the best.
-						</p>
-						<Button variant="primary" className="mt-2">
-							BUY NOW
-						</Button>
-					</div>
-					<div className="card w-[70%]">
-						<img src={image3} alt="Feature Vector" className="w-full" />
-						<div className="name-price flex justify-between mt-2">
-							<h2>Ipad Pro Max</h2>
-							<h2>$150</h2>
-						</div>
-						<p className="text-xs mt-2">
-							The iPad Pro Max is a top-of-the-line tablet with a large display,
-							powerful processor, and advanced features. It's ideal for
-							professionals and those who demand the best.
-						</p>
-						<Button variant="primary" className="mt-2">
-							BUY NOW
-						</Button>
-					</div>
-				</div>
-          </div>
-          
-          
-			<h1 className="text-gradient text-[2rem]">
+			</div>
+
+			<h1 className="text-gradient text-[2rem] my-16">
 				Pay Small Small with Cryptflex Installments Plan
 			</h1>
+
+			<div className="flex flex-row gap-16 items-center justify-center">
+				<div className="w-[40%]">
+					<img src={files} alt="Feature Vector" />
+					<h2 className=" text-[1.5rem] mb-4">
+						Flexible Installment Payments with Cryptflex
+					</h2>
+					<p>
+						Cryptflex offers flexible installment payment options for your
+						purchases. Simply choose the number of installments that suits your
+						budget, and we'll calculate the payment amount for each
+						installment. Enjoy interest-free payments and convenient recurring
+						charges to your credit card.
+					</p>
+				</div>
+				<div>
+					<img src={Phone2} alt="Feature Vector" className="w-[80%]" />
+				</div>
+			</div>
+			<h2 className="text-2xl text-center mt-8">Testimonials</h2>
+			<Testimonial />
+			<Faq />
+
+			<div className="max-w-[20rem] flex flex-col text-center items-center justify-center gap-4 py-8">
+				<h2 className="text-[1.2rem]">Get our latest updates</h2>
+				<p className="text-xs">
+					Want to be the first to know about new features, promotions, and
+					exclusive offers? Enter your email and subscribe!
+				</p>
+				<div className="bg-black rounded-md border-2 border-white py-2 px-4">
+					<input
+						type="text"
+						name=""
+						id=""
+						placeholder="Enter your email"
+						className="bg-black border-none outline-none"
+					/>
+					<Button variant="primary">Subscribe</Button>
+				</div>
+				<p className="text-xs">
+					We’ll never share your details with third parties. <br />
+					View our Privacy Policy for more info.
+				</p>
+			</div>
 		</div>
 	);
 }
 
-export default main
+export default main;
