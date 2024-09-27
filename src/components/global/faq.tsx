@@ -55,7 +55,9 @@ const FAQ = () => {
 
     return (
         <div className="w-full max-w-3xl mx-auto p-6">
-            <h2 className="text-2xl text-center mb-8">FAQS</h2>
+            <h2 className="text-2xl lg:text-4xl text-center mb-8 font-semibold mt-5">
+                FAQS
+            </h2>
             {faqData.map((item, index) => (
                 <FAQItem
                     key={index}

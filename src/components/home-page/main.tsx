@@ -102,7 +102,7 @@ function main() {
                 </div>
             </div>
 
-            <h1 className="text-[2rem] lg:text-[2.5rem] mt-16 text-center font-semibold max-w-2xl">
+            <h1 className="text-[2rem] lg:text-[2.5rem] mt-16 mb-10 text-center font-semibold max-w-2xl">
                 Pay Small Small with Cryptflex Installments Plan
             </h1>
 
