@@ -18,7 +18,7 @@ export default function FeatureContainer({
                     alt="Feature Vector"
                     className="w-[4.6875rem] h-[4.6875rem]"
                 />
-                <CardTitle className="text-gradient font-[500] text-lg xl:text-xl">
+                <CardTitle className="text-gradient font-semibold text-lg xl:text-xl">
                     {featureTitle}
                 </CardTitle>
             </CardHeader>
