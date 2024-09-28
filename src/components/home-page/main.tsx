@@ -1,9 +1,10 @@
 /* eslint-disable no-irregular-whitespace */
-import FeatureContainer from "../feature-component";
+import FeatureContainer from "../global/feature-component";
 import clockSVG from "../../assets/clock.svg";
 import graphSVG from "../../assets/graph.svg";
 import lockSVG from "../../assets/lock.svg";
-import Button from "../button-primary";
+// import Button from "../button-primary";
+import Button from "../global/button-primary";
 import Phone from "../../assets/phone.svg";
 import { mockProducts } from "@/lib/mock-products";
 import Phone2 from "../../assets/phone2.svg";
@@ -17,7 +18,7 @@ import ProductCard from "../global/product-card";
 
 function main() {
     return (
-        <div className="flex  flex-col  items-center justify-center mx-auto max-w-[1400px] px-2 overflow-x-hidden">
+        <div className="flex  flex-col  items-center justify-center mx-auto max-w-[1400px] px-2 overflow-x-hidden mt-10">
             <div className="flex flex-col items-center justify-center gap-8 w-[70%] mt-8">
                 {/* <img src={Trust} alt="Feature Vector" className="" /> */}
                 <div>

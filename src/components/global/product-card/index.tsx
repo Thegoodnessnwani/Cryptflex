@@ -1,4 +1,4 @@
-import Button from "@/components/button-primary";
+import Button from "../button-primary";
 import { NoSymbolIcon } from "@heroicons/react/24/outline";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";

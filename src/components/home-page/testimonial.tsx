@@ -62,7 +62,7 @@ const TestimonialCard = ({
 const Testimonial = () => {
     return (
         <Carousel
-            className="w-full max-w-3xl"
+            className="w-full"
             opts={{
                 align: "center",
                 slidesToScroll: 1,
@@ -79,7 +79,7 @@ const Testimonial = () => {
                     return (
                         <CarouselItem
                             key={index}
-                            className="pl-8 md:basis-[70%]"
+                            className="pl-8 md:basis-[60%]"
                         >
                             <TestimonialCard
                                 name={testimony.name}

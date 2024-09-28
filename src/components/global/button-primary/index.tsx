@@ -1,7 +1,7 @@
 import { cva } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 import { forwardRef } from "react";
-import { Button as BaseButton } from "../ui/button";
+import { Button as BaseButton } from "@/components/ui/button";
 
 interface ButtonProps
     extends React.DetailedHTMLProps<

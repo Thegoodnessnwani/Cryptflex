@@ -1,14 +1,10 @@
-// import Button from "./components/button-primary";
-// import FeatureContainer from "./components/feature-component";
-// import TrustedUsers from "./components/trusted-users";
-// import clockSVG from "./assets/clock.svg";
-// import graphSVG from "./assets/graph.svg";
-// import lockSVG from "./assets/lock.svg";
-
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from "./components/global/navbar";
 import HomePage from "./pages/home-page";
 import Faq from "./components/global/faq";
+import Dashboard from "./pages/dashboard";
+import Onboarding from "./pages/onboarding";
+import MerchantAuth from "./pages/merchant-auth";
 
 export default function App() {
     return (
@@ -24,6 +20,9 @@ export default function App() {
                         </>
                     }
                 />
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/onboarding" element={<Onboarding />} />
+                <Route path="/onboarding/merchant" element={<MerchantAuth />} />
             </Routes>
         </Router>
     );
