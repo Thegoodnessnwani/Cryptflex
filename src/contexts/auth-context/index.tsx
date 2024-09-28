@@ -1,7 +1,7 @@
-import { createContext } from "react";
+// import { createContext } from "react";
 
-const AuthContext = createContext({});
+// const AuthContext = createContext({});
 
-export const AuthProvider({children}: {children: React.ReactNode}) {
-    return {}
-}
+// export const AuthProvider({children}: {children: React.ReactNode}) {
+//     return {}
+// }
