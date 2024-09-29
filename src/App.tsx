@@ -14,19 +14,23 @@ export default function App() {
                 <Route
                     path="/"
                     element={
-                        <div className="mt-8">
-                            <Navbar />
+                        <>
+                            <div className="mt-8">
+                                <Navbar />
+                            </div>
                             <HomePage />
-                        </div>
+                        </>
                     }
                 />
                 <Route
                     path="/faq"
                     element={
-                        <div className="mt-8">
-                            <Navbar />
+                        <>
+                            <div className="mt-8">
+                                <Navbar />
+                            </div>
                             <Faq />
-                        </div>
+                        </>
                     }
                 />
                 <Route path="/dashboard" element={<Dashboard />} />

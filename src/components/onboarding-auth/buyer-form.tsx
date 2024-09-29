@@ -425,6 +425,7 @@ export function BuyerSigninForm() {
                 <span className="block text-center font-semibold">OR</span>
 
                 <Button
+                    type="button"
                     variant="secondary"
                     className="flex items-center justify-center gap-x-3 h-12 border rounded-xl px-5 w-full"
                     onClick={handleGoogleSignin}
