@@ -1,8 +1,4 @@
 import {
-    MerchantSignupForm,
-    MerchantSigninForm,
-} from "@/components/onboarding-auth/merchant-form";
-import {
     Card,
     CardContent,
     CardDescription,
@@ -10,16 +6,19 @@ import {
     CardTitle,
 } from "@/components/ui/card";
 import logoLg from "@/assets/logo-lg.svg";
-import { useEffect } from "react";
 import { Navigate } from "react-router-dom";
 import { useAuth, useGlobal } from "@/hooks/use-contexts";
-import { twMerge } from "tailwind-merge";
+import { useEffect } from "react";
+import {
+    BuyerSigninForm,
+    BuyerSignupForm,
+} from "@/components/onboarding-auth/buyer-form";
 import BackButton from "@/components/global/back-button";
 
-export default function MerchantAuth() {
-    const { form, setForm } = useGlobal();
-
+export default function BuyerAuth() {
     const { userLoggedIn } = useAuth();
+
+    const { form, setForm } = useGlobal();
 
     useEffect(() => {
         return () => {
@@ -36,32 +35,27 @@ export default function MerchantAuth() {
             <div className="w-full lg:max-w-6xl lg:mx-auto mt-6 lg:fixed top-10 left-40">
                 <BackButton />
             </div>
-            <section className="lg:mb-0 lg:flex items-center justify-between gap-x-6 w-full lg:max-w-6xl lg:mx-auto h-full">
+            <section className="lg:flex items-center justify-between gap-x-6 w-full lg:max-w-6xl lg:mx-auto h-full">
                 <div className="items-center gap-x-2 justify-center hidden lg:flex">
                     <img src={logoLg} alt="Cryptflex" className="" />
                     <h1 className="text-textSecondary font-bold text-6xl">
                         Cryptflex
                     </h1>
                 </div>
-                <div
-                    className={twMerge(
-                        "lg:w-[50%] lg:h-[80%] overflow-y-auto no-scrollbar transition-all duration-300 ",
-                        form == "login" && "lg:h-auto"
-                    )}
-                >
+                <div className="lg:w-[50%]">
                     {form == "signup" && (
-                        <Card className="bg-white/[.07] rounded-2xl text-white border-white/35 my-8 lg:mb-0 mx-auto max-w-lg lg:max-w-none">
+                        <Card className="bg-white/[.07] rounded-2xl text-white border-white/35 my-10 lg:mb-0  mx-auto max-w-lg lg:max-w-none">
                             <CardHeader>
                                 <CardTitle className="text-xl font-medium">
                                     Sign up now
                                 </CardTitle>
                                 <CardDescription className="text-white">
-                                    Fill the form to get started as a merchant
+                                    Fill the form to get started as a buyer
                                 </CardDescription>
                             </CardHeader>
                             <CardContent>
                                 <div className="max-w-md lg:max-w-none">
-                                    <MerchantSignupForm />
+                                    <BuyerSignupForm />
                                 </div>
                             </CardContent>
                         </Card>
@@ -78,7 +72,7 @@ export default function MerchantAuth() {
                             </CardHeader>
                             <CardContent>
                                 <div className="max-w-md lg:max-w-none">
-                                    <MerchantSigninForm />
+                                    <BuyerSigninForm />
                                 </div>
                             </CardContent>
                         </Card>

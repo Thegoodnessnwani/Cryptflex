@@ -2,6 +2,7 @@ import { cva } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 import { forwardRef } from "react";
 import { Button as BaseButton } from "@/components/ui/button";
+import Spinner from "@/components/svg-components/spinner";
 
 interface ButtonProps
     extends React.DetailedHTMLProps<
@@ -10,6 +11,7 @@ interface ButtonProps
     > {
     variant?: "primary" | "secondary" | "danger" | "plain";
     size?: "sm" | "md" | "lg";
+    loading?: boolean;
 }
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
@@ -18,8 +20,15 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             <BaseButton
                 ref={ref}
                 {...props}
+                disabled={props.disabled || props.loading}
                 className={cn(buttonVariants({ variant, size }), className)}
-            />
+            >
+                {props.loading ? (
+                    <Spinner className="w-6 h-6" />
+                ) : (
+                    props.children
+                )}
+            </BaseButton>
         );
     }
 );

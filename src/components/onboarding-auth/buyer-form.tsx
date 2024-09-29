@@ -10,11 +10,8 @@ import {
 } from "../ui/form";
 import { useForm } from "react-hook-form";
 import Button from "../global/button-primary";
-import {
-    MerchantSignupFormSchema,
-    MerchantLoginFormSchema,
-} from "@/lib/schema";
-import { MerchantLoginFormType, MerchantSignupFormType } from "@/lib/typings";
+import { BuyerSignupFormSchema, BuyerLoginFormSchema } from "@/lib/schema";
+import { BuyerLoginFormType, BuyerSignupFormType } from "@/lib/typings";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "../ui/input";
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/solid";
@@ -23,19 +20,21 @@ import { useState } from "react";
 import { toast } from "sonner";
 import { registerUser, signInUser } from "@/firebase/auth";
 import { useGlobal } from "@/hooks/use-contexts";
+import { signInWithGoogle } from "@/firebase/auth";
+import googleLogo from "@/assets/google-logo.svg";
 
-export function MerchantSignupForm() {
+export function BuyerSignupForm() {
     const [revealPassword, setRevealPassword] = useState(false);
 
     const { setForm } = useGlobal();
 
-    const form = useForm<MerchantSignupFormType>({
+    const form = useForm<BuyerSignupFormType>({
         mode: "onSubmit",
-        resolver: zodResolver(MerchantSignupFormSchema),
+        resolver: zodResolver(BuyerSignupFormSchema),
         defaultValues: {
             termsOfUse: false,
             marketing: false,
-            role: "merchant",
+            role: "buyer",
         },
     });
 
@@ -45,7 +44,7 @@ export function MerchantSignupForm() {
         formState: { isSubmitting },
     } = form;
 
-    async function submitForm(data: MerchantSignupFormType) {
+    async function submitForm(data: BuyerSignupFormType) {
         try {
             await registerUser(data);
             toast.success("User registered successfully");
@@ -126,44 +125,6 @@ export function MerchantSignupForm() {
                         return (
                             <FormItem>
                                 <FormLabel>Phone number</FormLabel>
-                                <FormControl>
-                                    <Input
-                                        {...field}
-                                        className="text-white bg-transparent border-white/35"
-                                    />
-                                </FormControl>
-                                <FormMessage />
-                            </FormItem>
-                        );
-                    }}
-                />
-
-                <FormField
-                    name="businessName"
-                    control={control}
-                    render={({ field }) => {
-                        return (
-                            <FormItem>
-                                <FormLabel>Business name</FormLabel>
-                                <FormControl>
-                                    <Input
-                                        {...field}
-                                        className="text-white bg-transparent border-white/35"
-                                    />
-                                </FormControl>
-                                <FormMessage />
-                            </FormItem>
-                        );
-                    }}
-                />
-
-                <FormField
-                    name="businessAddress"
-                    control={control}
-                    render={({ field }) => {
-                        return (
-                            <FormItem>
-                                <FormLabel>Business address</FormLabel>
                                 <FormControl>
                                     <Input
                                         {...field}
@@ -334,12 +295,12 @@ export function MerchantSignupForm() {
     );
 }
 
-export function MerchantSigninForm() {
+export function BuyerSigninForm() {
     const [revealPassword, setRevealPassword] = useState(false);
 
-    const form = useForm<MerchantLoginFormType>({
+    const form = useForm<BuyerLoginFormType>({
         mode: "onSubmit",
-        resolver: zodResolver(MerchantLoginFormSchema),
+        resolver: zodResolver(BuyerLoginFormSchema),
     });
 
     const { setForm } = useGlobal();
@@ -350,7 +311,20 @@ export function MerchantSigninForm() {
         formState: { isSubmitting },
     } = form;
 
-    async function submitForm(data: MerchantLoginFormType) {
+    async function handleGoogleSignin() {
+        try {
+            await signInWithGoogle();
+        } catch (error: any) {
+            console.error(error);
+            toast.error(
+                error.message ||
+                    error.code ||
+                    "Server be tripping fr fr! Try again later"
+            );
+        }
+    }
+
+    async function submitForm(data: BuyerLoginFormType) {
         try {
             const res = await signInUser(data.email, data.password);
             console.log(res);
@@ -447,6 +421,21 @@ export function MerchantSigninForm() {
                         </span>
                     </span>
                 </div>
+
+                <span className="block text-center font-semibold">OR</span>
+
+                <Button
+                    variant="secondary"
+                    className="flex items-center justify-center gap-x-3 h-12 border rounded-xl px-5 w-full"
+                    onClick={handleGoogleSignin}
+                >
+                    <img
+                        src={googleLogo}
+                        alt={"Google signin"}
+                        className="w-6"
+                    />
+                    <span>Continue with Google</span>
+                </Button>
             </form>
         </Form>
     );

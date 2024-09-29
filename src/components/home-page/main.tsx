@@ -3,18 +3,16 @@ import FeatureContainer from "../global/feature-component";
 import clockSVG from "../../assets/clock.svg";
 import graphSVG from "../../assets/graph.svg";
 import lockSVG from "../../assets/lock.svg";
-// import Button from "../button-primary";
 import Button from "../global/button-primary";
 import Phone from "../../assets/phone.svg";
 import { mockProducts } from "@/lib/mock-products";
 import Phone2 from "../../assets/phone2.svg";
 import files from "../../assets/Empty-Files.svg";
-import Testimonial from "./testimonial";
 import Faq from "../global/faq";
 import Steps from "./steps";
-// import TrustedUsers from "../trusted-users";
 import TrustedUsers from "../global/trusted-users";
 import ProductCard from "../global/product-card";
+import { Testimonial } from "../lazy-components";
 
 function main() {
     return (
