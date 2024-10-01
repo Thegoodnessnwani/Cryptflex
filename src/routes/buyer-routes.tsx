@@ -1,6 +1,6 @@
 import { Routes } from "react-router-dom";
 
-export function BuyerRoutes() {
+export default function BuyerRoutes() {
     return (
         <Routes>
             {/*
