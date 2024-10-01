@@ -47,10 +47,9 @@ export async function signInWithGoogle() {
     try {
         // Sign in with google
         const provider = new GoogleAuthProvider();
-        const userCred = await signInWithPopup(auth, provider);
+        const result = await signInWithPopup(auth, provider);
 
-        // Store user data in firestore
-        console.log(userCred)
+        return result.user;
     } catch(error: any) {
         const parsedError = errorParser.parseError(error?.code as string)
         console.error("Error signing in with google: " + parsedError);

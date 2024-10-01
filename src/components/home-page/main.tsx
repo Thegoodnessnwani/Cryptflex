@@ -10,13 +10,15 @@ import Phone2 from "../../assets/phone2.svg";
 import files from "../../assets/Empty-Files.svg";
 import Faq from "../global/faq";
 import Steps from "./steps";
-import TrustedUsers from "../global/trusted-users";
 import ProductCard from "../global/product-card";
-import { Testimonial } from "../lazy-components";
+import { lazy } from "react";
 
 function main() {
+    const Testimonial = lazy(() => import("../home-page/testimonial"));
+    const TrustedUsers = lazy(() => import("../global/trusted-users"));
+
     return (
-        <div className="flex  flex-col  items-center justify-center mx-auto max-w-[1400px] px-2 overflow-x-hidden mt-10">
+        <div className="flex  flex-col  items-center justify-center mx-auto max-w-[1400px] overflow-x-hidden mt-10 px-2 xl:px-3">
             <div className="flex flex-col items-center justify-center gap-8 w-[70%] mt-8">
                 {/* <img src={Trust} alt="Feature Vector" className="" /> */}
                 <div>

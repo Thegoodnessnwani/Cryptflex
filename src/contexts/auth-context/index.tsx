@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import { auth, onAuthStateChanged } from "@/firebase";
 import { User } from "firebase/auth";
-import { getUser } from "@/firebase/db";
+import { getUserDoc } from "@/firebase/db";
 import { DocumentData } from "firebase/firestore";
 
 type AuthContextType = {
@@ -9,6 +9,8 @@ type AuthContextType = {
     userLoggedIn: boolean;
     loading: boolean;
     userFullData: DocumentData | undefined;
+    userIsBuyer: boolean;
+    userIsMerchant: boolean;
 };
 
 export const AuthContext = createContext({} as AuthContextType);
@@ -29,10 +31,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
     async function initializeUser(user: User | null) {
         if (user) {
+            const userData = await getUserDoc(user.uid);
+            setUserFullData(userData.data());
             setCurrentUser(user);
             setUserLoggedIn(true);
-            const userData = await getUser(user.uid);
-            setUserFullData(userData);
         } else {
             setCurrentUser(null);
             setUserLoggedIn(false);
@@ -40,11 +42,19 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         setLoading(false);
     }
 
+    const userIsBuyer =
+        userLoggedIn && !loading && userFullData?.role === "buyer";
+
+    const userIsMerchant =
+        userLoggedIn && !loading && userFullData?.role === "merchant";
+
     const value = {
         currentUser,
         userLoggedIn,
         loading,
         userFullData,
+        userIsBuyer,
+        userIsMerchant,
     };
     return (
         <AuthContext.Provider value={value}>{children}</AuthContext.Provider>

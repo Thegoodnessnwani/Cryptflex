@@ -16,7 +16,7 @@ import {
 import BackButton from "@/components/global/back-button";
 
 export default function BuyerAuth() {
-    const { userLoggedIn } = useAuth();
+    const { userLoggedIn, loading } = useAuth();
 
     const { form, setForm } = useGlobal();
 
@@ -26,16 +26,16 @@ export default function BuyerAuth() {
         };
     }, []);
 
-    if (userLoggedIn) {
+    if (userLoggedIn && !loading) {
         return <Navigate to="/dashboard" replace={true} />;
     }
 
     return (
         <>
-            <div className="w-full lg:max-w-6xl lg:mx-auto mt-6 lg:fixed top-10 left-40">
+            <div className="w-full lg:max-w-6xl ml-4 lg:ml-8 mt-6 lg:fixed top-10">
                 <BackButton />
             </div>
-            <section className="lg:flex items-center justify-between gap-x-6 w-full lg:max-w-6xl lg:mx-auto h-full">
+            <section className="lg:flex items-center justify-between gap-x-6 w-full lg:max-w-6xl lg:mx-auto h-full px-2 lg:px-3">
                 <div className="items-center gap-x-2 justify-center hidden lg:flex">
                     <img src={logoLg} alt="Cryptflex" className="" />
                     <h1 className="text-textSecondary font-bold text-6xl">

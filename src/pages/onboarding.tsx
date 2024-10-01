@@ -5,7 +5,6 @@ import { Navigate } from "react-router-dom";
 import { useAuth } from "@/hooks/use-contexts";
 import { HomeIcon } from "@heroicons/react/24/solid";
 export default function Onboarding() {
-    // console.log(auth)
     const { navigate } = useNavigation();
     const { userLoggedIn } = useAuth();
 
@@ -41,17 +40,17 @@ export default function Onboarding() {
                 <div className="flex flex-col gap-5 sm:flex-row items-center md:space-y-0 justify-between text-center max-w-md mx-auto">
                     <Button
                         variant="primary"
-                        className="text-sm block h-10 px-5 flex-1"
+                        className="text-sm block h-11 px-5 flex-1"
                         onClick={() => navigate("/onboarding/merchant")}
                     >
                         Continue as a merchant
                     </Button>
                     <Button
                         variant="primary"
-                        className="text-sm block h-10 px-5 flex-1"
+                        className="text-sm block h-11 px-5 flex-1"
                         onClick={() => navigate("/onboarding/buyer")}
                     >
-                        Start shopping
+                        Continue as a buyer
                     </Button>
                 </div>
                 <Button
