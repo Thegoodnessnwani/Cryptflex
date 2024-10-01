@@ -6,6 +6,7 @@ import Onboarding from "./pages/onboarding";
 import MerchantAuth from "./pages/merchant-auth";
 import BuyerAuth from "./pages/buyer-auth";
 import Navbar from "./components/global/navbar";
+import Footer from "./components/global/footer";
 
 export default function App() {
     return (
@@ -17,6 +18,7 @@ export default function App() {
                         <div className="mt-8">
                             <Navbar />
                             <HomePage />
+                            <Footer />
                         </div>
                     }
                 />

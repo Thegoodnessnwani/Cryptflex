@@ -13,6 +13,7 @@ import Steps from "./steps";
 import TrustedUsers from "../global/trusted-users";
 import ProductCard from "../global/product-card";
 import { Testimonial } from "../lazy-components";
+import mail from "../../assets/mail.svg";
 
 function main() {
     return (
@@ -139,6 +140,7 @@ function main() {
             <Faq />
 
             <div className="max-w-[20rem] flex flex-col text-center items-center justify-center gap-4 py-8">
+                <img className="w-16 h-16" src={mail} alt='mail-icon' />
                 <h2 className="text-[1.2rem]">Get our latest updates</h2>
                 <p className="text-xs">
                     Want to be the first to know about new
@@ -161,6 +163,7 @@ function main() {
                 </p>
             </div>
         </div>
+
     );
 }
 
