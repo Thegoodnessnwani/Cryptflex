@@ -11,7 +11,7 @@ import files from "../../assets/Empty-Files.svg";
 import Faq from "../global/faq";
 import Steps from "./steps";
 import ProductCard from "../global/product-card";
-import { lazy } from "react";
+import { lazy, Suspense } from "react";
 
 function main() {
     const Testimonial = lazy(() => import("../home-page/testimonial"));
@@ -20,7 +20,9 @@ function main() {
     return (
         <div className="flex  flex-col  items-center justify-center mx-auto max-w-[1400px] overflow-x-hidden mt-10 px-2 xl:px-3">
             <div className="flex flex-col items-center justify-center gap-8 w-[70%] mt-8">
-                <TrustedUsers />
+                <Suspense fallback={<div>Loading...</div>}>
+                    <TrustedUsers />
+                </Suspense>
                 <h1 className="text-gradient text-[2.5rem] font-semibold text-center">
                     Cryptflex, Your Crypto Installment Solution
                 </h1>
@@ -134,7 +136,9 @@ function main() {
             <h2 className="text-2xl lg:text-4xl text-center mt-12 font-semibold mb-7">
                 Testimonials
             </h2>
-            <Testimonial />
+            <Suspense fallback={<div>Loading...</div>}>
+                <Testimonial />
+            </Suspense>
             <Faq />
 
             <div className="max-w-[20rem] flex flex-col text-center items-center justify-center gap-4 py-8">
