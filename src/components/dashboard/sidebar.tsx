@@ -15,9 +15,9 @@ import {
     NoteIcon,
     SettingIcon,
     SMSIcon,
+    UserIcon,
     WalletCheckIcon,
 } from "../svg-components/icons";
-import { UserIcon } from "lucide-react";
 import { NavLink } from "react-router-dom";
 import { signOutUser } from "@/firebase/auth";
 
@@ -146,11 +146,11 @@ export default function Sidebar({ user, isOpen, onClose }: SidebarProps) {
                                     {({ isActive }) => (
                                         <>
                                             <link.icon
-                                                className={`[&>path]:stroke-${
-                                                    isActive
-                                                        ? "textSecondary"
-                                                        : "[#84828A]"
-                                                }`}
+                                                className={twMerge(
+                                                    "[&>path]:stroke-[#84828A]",
+                                                    isActive &&
+                                                        "[&>path]:stroke-[#fff]"
+                                                )}
                                             />
                                             <span
                                                 className={

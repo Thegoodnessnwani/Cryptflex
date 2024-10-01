@@ -20,10 +20,7 @@ function main() {
     return (
         <div className="flex  flex-col  items-center justify-center mx-auto max-w-[1400px] overflow-x-hidden mt-10 px-2 xl:px-3">
             <div className="flex flex-col items-center justify-center gap-8 w-[70%] mt-8">
-                {/* <img src={Trust} alt="Feature Vector" className="" /> */}
-                <div>
-                    <TrustedUsers />
-                </div>
+                <TrustedUsers />
                 <h1 className="text-gradient text-[2.5rem] font-semibold text-center">
                     Cryptflex, Your Crypto Installment Solution
                 </h1>
