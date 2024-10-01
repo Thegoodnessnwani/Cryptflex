@@ -22,6 +22,8 @@ import { registerUser, signInUser } from "@/firebase/auth";
 import { useGlobal } from "@/hooks/use-contexts";
 import { signInWithGoogle } from "@/firebase/auth";
 import googleLogo from "@/assets/google-logo.svg";
+import { getUserDoc } from "@/firebase/db";
+import { useNavigation } from "@/hooks/use-navigate";
 
 export function BuyerSignupForm() {
     const [revealPassword, setRevealPassword] = useState(false);
@@ -305,6 +307,8 @@ export function BuyerSigninForm() {
 
     const { setForm } = useGlobal();
 
+    const { navigate } = useNavigation();
+
     const {
         handleSubmit,
         control,
@@ -313,7 +317,17 @@ export function BuyerSigninForm() {
 
     async function handleGoogleSignin() {
         try {
-            await signInWithGoogle();
+            const user = await signInWithGoogle();
+            const userDoc = await getUserDoc(user.uid);
+            if (!userDoc.exists()) {
+                await user.delete();
+                navigate("/onboarding");
+                toast.warning(
+                    "User not found, please register either as a buyer or merchant first"
+                );
+                return;
+            }
+            toast.success("Signed in successfully");
         } catch (error: any) {
             console.error(error);
             toast.error(
@@ -425,6 +439,7 @@ export function BuyerSigninForm() {
                 <span className="block text-center font-semibold">OR</span>
 
                 <Button
+                    type="button"
                     variant="secondary"
                     className="flex items-center justify-center gap-x-3 h-12 border rounded-xl px-5 w-full"
                     onClick={handleGoogleSignin}

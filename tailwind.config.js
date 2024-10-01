@@ -12,6 +12,7 @@ export default {
 			"secondary-text-gradient": 'linear-gradient(180deg, #1E40AF 0%, #B6C1E5 43.85%, #0D1B49 100%)',
 "radial-btn-gradient": 'radial-gradient(circle, rgba(0, 0, 0, 0.23) 0%, rgba(0, 0, 0, 0) 86.18%), radial-gradient(circle, rgba(255, 255, 255, 0.41) 0%, rgba(255, 255, 255, 0) 69.79%), #1E40AF',
 	'background-gradient': 'linear-gradient(180deg, #1E40AF 0%, rgba(30, 64, 175, 0) 100%)',
+	"active-link-gradient": "linear-gradient(90deg, rgba(30, 64, 175, 0.55) 0%, rgba(255, 255, 255, 0.07) 100%)"
 		},
 		fontFamily: {
 			inter: ['Inter', 'sans-serif'],

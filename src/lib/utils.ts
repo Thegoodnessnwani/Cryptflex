@@ -5,6 +5,17 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
+export function getInitials(displayName: string): string {
+  const names = displayName.trim().split(/\s+/);
+  if (names.length >= 2) {
+    return (names[0][0] + names[names.length - 1][0]).toUpperCase();
+  } else if (names.length === 1) {
+    return names[0][0].toUpperCase();
+  } else {
+    return "";
+  }
+}
+
 class FirebaseErrorParser {
   private errorMap: { [key: string]: string };
 
@@ -15,7 +26,6 @@ class FirebaseErrorParser {
       'auth/invalid-email': 'Invalid email address.',
       'auth/weak-password': 'Password is too weak.',
       'auth/invalid-credential': 'Invalid credentials.',
-      // ... other error codes and messages
     };
   }
 

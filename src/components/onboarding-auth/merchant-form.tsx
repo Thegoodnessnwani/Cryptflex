@@ -21,8 +21,11 @@ import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/solid";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useState } from "react";
 import { toast } from "sonner";
-import { registerUser, signInUser } from "@/firebase/auth";
+import { registerUser, signInUser, signInWithGoogle } from "@/firebase/auth";
 import { useGlobal } from "@/hooks/use-contexts";
+import { getUserDoc } from "@/firebase/db";
+import { useNavigation } from "@/hooks/use-navigate";
+import googleLogo from "@/assets/google-logo.svg";
 
 export function MerchantSignupForm() {
     const [revealPassword, setRevealPassword] = useState(false);
@@ -344,6 +347,8 @@ export function MerchantSigninForm() {
 
     const { setForm } = useGlobal();
 
+    const { navigate } = useNavigation();
+
     const {
         handleSubmit,
         control,
@@ -358,6 +363,29 @@ export function MerchantSigninForm() {
         } catch (error: any) {
             console.error("Error signing in user: " + error);
             toast.error(error.code || error.message || "Error signing in user");
+        }
+    }
+
+    async function handleGoogleSignin() {
+        try {
+            const user = await signInWithGoogle();
+            const userDoc = await getUserDoc(user.uid);
+            if (!userDoc.exists()) {
+                await user.delete();
+                navigate("/onboarding");
+                toast.warning(
+                    "User not found, please register either as a buyer or merchant first"
+                );
+                return;
+            }
+            toast.success("Signed in successfully");
+        } catch (error: any) {
+            console.error(error);
+            toast.error(
+                error.message ||
+                    error.code ||
+                    "Server be tripping fr fr! Try again later"
+            );
         }
     }
 
@@ -447,6 +475,22 @@ export function MerchantSigninForm() {
                         </span>
                     </span>
                 </div>
+
+                <span className="block text-center font-semibold">OR</span>
+
+                <Button
+                    type="button"
+                    variant="secondary"
+                    className="flex items-center justify-center gap-x-3 h-12 border rounded-xl px-5 w-full"
+                    onClick={handleGoogleSignin}
+                >
+                    <img
+                        src={googleLogo}
+                        alt={"Google signin"}
+                        className="w-6"
+                    />
+                    <span>Continue with Google</span>
+                </Button>
             </form>
         </Form>
     );
