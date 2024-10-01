@@ -7,7 +7,11 @@ import {
     UserOctagonIcon,
 } from "../svg-components/icons";
 import SalesSummaryCard from "./sales-sumary-card";
-
+import { BestSellingProductsTable } from "./best-selling-products-table";
+import {
+    BestSellingProducts,
+    Columns as BestSellingProductsColumns,
+} from "../table-columns/best-selling-products-columns";
 // const salesSummary = {
 //     totalSales: 200,
 //     totalRevenue: 1000,
@@ -17,6 +21,37 @@ import SalesSummaryCard from "./sales-sumary-card";
 
 export default function MerchantDashboard() {
     // const { userFullData } = useAuth();
+    const data: BestSellingProducts[] = [
+        {
+            product_id: "#1",
+            product_image: "https://i.pravatar.cc/300",
+            product_price: 100,
+            product_name: "Round Neck T-Shirt",
+            product_total_sales: 100,
+            product_stock_count: 100,
+            product_status: "in_stock",
+        },
+
+        {
+            product_id: "#2",
+            product_image: "https://i.pravatar.cc/400",
+            product_price: 100,
+            product_name: "Round Neck T-Shirt",
+            product_total_sales: 100,
+            product_stock_count: 100,
+            product_status: "in_stock",
+        },
+
+        {
+            product_id: "#3",
+            product_image: "https://i.pravatar.cc/600",
+            product_price: 100,
+            product_name: "Round Neck T-Shirt",
+            product_total_sales: 100,
+            product_stock_count: 100,
+            product_status: "out_of_stock",
+        },
+    ];
     return (
         <section className="space-y-5">
             <h1 className="flex items-center space-x-2 text-xl">
@@ -51,6 +86,10 @@ export default function MerchantDashboard() {
                     financialData={false}
                 />
             </div>
+            <BestSellingProductsTable
+                columns={BestSellingProductsColumns}
+                data={data}
+            />
         </section>
     );
 }

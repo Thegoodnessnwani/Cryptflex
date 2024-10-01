@@ -20,6 +20,7 @@ import {
 } from "../svg-components/icons";
 import { NavLink } from "react-router-dom";
 import { signOutUser } from "@/firebase/auth";
+import solflareSVG from "@/assets/solflare.svg";
 
 type SidebarProps = Pick<HeaderProps, "user"> & {
     isOpen: boolean;
@@ -134,6 +135,7 @@ export default function Sidebar({ user, isOpen, onClose }: SidebarProps) {
                             <li key={link.to}>
                                 <NavLink
                                     to={link.to}
+                                    onClick={() => onClose()}
                                     className={({ isActive }) =>
                                         twMerge(
                                             "flex items-center space-x-4 pl-4 py-4",
@@ -167,6 +169,21 @@ export default function Sidebar({ user, isOpen, onClose }: SidebarProps) {
                             </li>
                         );
                     })}
+
+                    <li>
+                        <Button
+                            variant="secondary"
+                            className="flex items-center gap-x-3  text-[#84828A]  py-7 mt-10 pr-6 py-4 border-l-4 rounded-none"
+                        >
+                            {/* <SolflareWalletIcon /> */}
+                            <img
+                                src={solflareSVG}
+                                alt="Solflare Wallet"
+                                className="w-8 h-8"
+                            />
+                            <span>Connect Wallet</span>
+                        </Button>
+                    </li>
 
                     <li className="fixed bottom-8">
                         <Button
