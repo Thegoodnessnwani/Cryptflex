@@ -30,17 +30,18 @@ export default function Sidebar({ user, isOpen, onClose }: SidebarProps) {
     const sidebarRef = useRef<HTMLDivElement | null>(null);
 
     const buyerLinks = [
-        { to: "/dashboard", label: "Overview", icon: DashboardIcon },
-        { to: "/buyer/account", label: "Account", icon: UserIcon },
-        {
-            to: "/buyer/installments",
-            label: "Installments",
-            icon: CalculatorIcon,
-        },
-        { to: "/buyer/order-history", label: "Order History", icon: NoteIcon },
-        { to: "/buyer/settings", label: "Settings", icon: SettingIcon },
-        // Add more buyer-specific links
-    ];
+			{ to: "/dashboard", label: "Overview", icon: DashboardIcon },
+			{ to: "/buyer/products", label: "Products", icon: BagIcon },
+			{ to: "/buyer/account", label: "Account", icon: UserIcon },
+			{
+				to: "/buyer/installments",
+				label: "Installments",
+				icon: CalculatorIcon,
+			},
+			{ to: "/buyer/order-history", label: "Order History", icon: NoteIcon },
+			{ to: "/buyer/settings", label: "Settings", icon: SettingIcon },
+			// Add more buyer-specific links
+		];
 
     const merchantLinks = [
         { to: "/dashboard", label: "Overview", icon: DashboardIcon },

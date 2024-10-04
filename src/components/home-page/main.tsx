@@ -11,15 +11,16 @@ import files from "../../assets/Empty-Files.svg";
 import Faq from "../global/faq";
 import Steps from "./steps";
 import ProductCard from "../global/product-card";
-import { lazy } from "react";
 import mail from "../../assets/mail.svg";
 import { lazy, Suspense } from "react";
+import Footer from "../global/footer";
 
 function main() {
     const Testimonial = lazy(() => import("../home-page/testimonial"));
     const TrustedUsers = lazy(() => import("../global/trusted-users"));
 
     return (
+        <div>
         <div className="flex  flex-col  items-center justify-center mx-auto max-w-[1400px] overflow-x-hidden mt-10 px-2 xl:px-3">
             <div className="flex flex-col items-center justify-center gap-8 w-[70%] mt-8">
                 <Suspense fallback={<div>Loading...</div>}>
@@ -167,7 +168,8 @@ function main() {
                 </p>
             </div>
         </div>
-
+            <Footer/>
+        </div>
     );
 }
 
