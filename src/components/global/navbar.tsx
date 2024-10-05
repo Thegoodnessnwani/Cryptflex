@@ -10,12 +10,16 @@ import { useState, useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useNavigation } from "@/hooks/use-navigate";
+import { useAuth } from "@/hooks/use-contexts";
+import { getInitials } from "@/lib/utils";
 
 function Navbar() {
     const [navToggle, setNavToggle] = useState(false);
     const mobileMenuRef = useRef(null);
 
     const { navigate } = useNavigation();
+
+    const { userFullData, userLoggedIn } = useAuth();
 
     useGSAP(() => {
         if (navToggle) {
@@ -64,15 +68,28 @@ function Navbar() {
                         FAQ
                     </Link>
                 </div>
-                <Button
-                    variant="primary"
-                    className="h-10 hidden xl:block px-6"
-                    onClick={() => {
-                        navigate("/onboarding");
-                    }}
-                >
-                    Get Started
-                </Button>
+                {userLoggedIn && (
+                    <Button
+                        variant="plain"
+                        className="text-black px-6 rounded-full  hover:bg-white/[.07] h-10 hidden xl:block"
+                        onClick={() => {
+                            navigate("/dashboard");
+                        }}
+                    >
+                        {getInitials(userFullData?.displayName)}
+                    </Button>
+                )}
+                {!userLoggedIn && (
+                    <Button
+                        variant="primary"
+                        className="h-10 hidden xl:block px-6"
+                        onClick={() => {
+                            navigate("/onboarding");
+                        }}
+                    >
+                        Get Started
+                    </Button>
+                )}
 
                 {/* Mobile Menu Toggle */}
                 <SecButton
@@ -122,16 +139,29 @@ function Navbar() {
                             <ChevronRightIcon className="w-6 h-6" />
                         </Link>
                     </div>
-                    <Button
-                        variant="primary"
-                        className="h-11 px-6"
-                        onClick={() => {
-                            navigate("/onboarding");
-                            setNavToggle(false);
-                        }}
-                    >
-                        Get Started
-                    </Button>
+                    {userLoggedIn && (
+                        <Button
+                            variant="plain"
+                            className="text-black px-6 rounded-full  hover:bg-white/[.07] h-11"
+                            onClick={() => {
+                                navigate("/dashboard");
+                            }}
+                        >
+                            Go to Dashboard
+                        </Button>
+                    )}
+                    {!userLoggedIn && (
+                        <Button
+                            variant="primary"
+                            className="h-11 px-6"
+                            onClick={() => {
+                                navigate("/onboarding");
+                                setNavToggle(false);
+                            }}
+                        >
+                            Get Started
+                        </Button>
+                    )}
                 </div>
             </div>
         </nav>

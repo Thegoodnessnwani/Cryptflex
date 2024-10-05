@@ -1,5 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
+
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -41,5 +43,16 @@ class FirebaseErrorParser {
   }
 }
 
+
 export const errorParser = new FirebaseErrorParser();
 
+
+export function getPhotoUrl(file: File) {
+  const reader = new FileReader();
+  reader.readAsDataURL(file);
+  return new Promise<string>((resolve) => {
+      reader.onload = () => {
+          resolve(reader.result as string);
+      };
+  });
+}

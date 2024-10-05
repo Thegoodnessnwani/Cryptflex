@@ -13,7 +13,7 @@ export default function DashboardLayout() {
     };
 
     return (
-        <div className="flex flex-col lg:flex-row h-screen">
+        <div className="flex flex-col lg:flex-row">
             <Sidebar
                 user={userFullData}
                 isOpen={isSidebarOpen}
@@ -21,7 +21,7 @@ export default function DashboardLayout() {
             />
             <main className="flex flex-col flex-grow">
                 <Header user={userFullData} onMenuClick={toggleSidebar} />
-                <div className="flex-grow overflow-y-auto p-4 lg:p-6">
+                <div className="flex-grow overflow-y-auto p-4 lg:p-6 not-scrollbar">
                     <Outlet />
                 </div>
             </main>

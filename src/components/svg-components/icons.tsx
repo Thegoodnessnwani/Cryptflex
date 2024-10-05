@@ -432,6 +432,88 @@ const UserOctagonIcon = (props: SVGProps<SVGSVGElement>) => (
     </svg>
 );
 
+const DocumentUploadIcon = (props: SVGProps<SVGSVGElement>) => (
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width={21}
+        height={21}
+        fill="none"
+        {...props}
+    >
+        <path
+            stroke="#fff"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={1.5}
+            d="M7.875 14.875v-5.25l-1.75 1.75M7.875 9.625l1.75 1.75"
+        />
+        <path
+            stroke="#fff"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={1.5}
+            d="M19.25 8.75v4.375c0 4.375-1.75 6.125-6.125 6.125h-5.25c-4.375 0-6.125-1.75-6.125-6.125v-5.25C1.75 3.5 3.5 1.75 7.875 1.75h4.375"
+        />
+        <path
+            stroke="#fff"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={1.5}
+            d="M19.25 8.75h-3.5c-2.625 0-3.5-.875-3.5-3.5v-3.5l7 7Z"
+        />
+    </svg>
+);
+
+const EditIcon = (props: SVGProps<SVGSVGElement>) => (
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width={21}
+        height={21}
+        fill="none"
+        {...props}
+    >
+        <path
+            stroke="#fff"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeMiterlimit={10}
+            strokeWidth={1.5}
+            d="M11.602 3.15 4.42 10.754c-.272.288-.534.857-.587 1.25L3.51 14.84c-.114 1.024.62 1.724 1.636 1.549l2.817-.482c.394-.07.945-.358 1.217-.656l7.183-7.604c1.243-1.312 1.803-2.808-.13-4.637-1.926-1.811-3.387-1.173-4.63.14Z"
+        />
+        <path
+            stroke="#fff"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeMiterlimit={10}
+            strokeWidth={1.5}
+            d="M10.403 4.419a5.36 5.36 0 0 0 4.77 4.506M2.625 19.25h15.75"
+        />
+    </svg>
+);
+
+const TrashIcon = (props: SVGProps<SVGSVGElement>) => (
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width={21}
+        height={21}
+        fill="none"
+        {...props}
+    >
+        <path
+            fill="#fff"
+            d="M18.375 5.889h-.07c-4.628-.464-9.249-.639-13.825-.175l-1.785.175a.66.66 0 0 1-.726-.595.652.652 0 0 1 .586-.718l1.785-.175c4.655-.472 9.371-.288 14.096.175a.657.657 0 0 1 .587.718.648.648 0 0 1-.648.595Z"
+        />
+        <path
+            fill="#fff"
+            d="M7.437 5.005c-.035 0-.07 0-.114-.009a.659.659 0 0 1-.533-.752l.192-1.146c.14-.84.333-2.004 2.371-2.004h2.293c2.047 0 2.24 1.207 2.371 2.012l.193 1.138a.65.65 0 0 1-.534.752.65.65 0 0 1-.753-.534l-.192-1.137c-.123-.761-.149-.91-1.076-.91H9.362c-.927 0-.945.123-1.076.901l-.201 1.138a.657.657 0 0 1-.648.551ZM13.31 19.906H7.691c-3.054 0-3.177-1.688-3.273-3.053L3.85 8.04a.662.662 0 0 1 .613-.7.663.663 0 0 1 .7.613l.569 8.811c.096 1.33.13 1.829 1.96 1.829h5.617c1.838 0 1.873-.499 1.96-1.829l.569-8.811a.669.669 0 0 1 .7-.613.657.657 0 0 1 .612.7l-.568 8.811c-.097 1.366-.22 3.054-3.273 3.054Z"
+        />
+        <path
+            fill="#fff"
+            d="M11.953 15.094H9.039a.661.661 0 0 1-.656-.656c0-.36.297-.657.656-.657h2.914c.359 0 .656.298.656.656a.661.661 0 0 1-.656.657ZM12.688 11.594H8.311a.661.661 0 0 1-.656-.656c0-.36.298-.657.657-.657h4.374c.36 0 .657.298.657.656a.661.661 0 0 1-.656.657Z"
+        />
+    </svg>
+);
+
 export {
     DashboardIcon,
     UserIcon,
@@ -449,4 +531,7 @@ export {
     StatusUp,
     ChartIcon,
     UserOctagonIcon,
+    DocumentUploadIcon,
+    EditIcon,
+    TrashIcon,
 };

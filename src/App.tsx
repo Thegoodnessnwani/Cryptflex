@@ -4,24 +4,31 @@ import Faq from "./components/global/faq";
 import Unauthorized from "./pages/unathorized";
 import PublicLayout from "./components/global/public-layout";
 import { lazy, Suspense } from "react";
+import DashboardLayout from "./components/global/dashboard-layout";
+import Spinner from "./components/svg-components/spinner";
+import DashboardRouter from "./routes/dashboard-router";
 
 export default function App() {
     const Navbar = lazy(() => import("./components/global/navbar"));
     const MerchantAuth = lazy(() => import("./pages/merchant-auth"));
     const BuyerAuth = lazy(() => import("./pages/buyer-auth"));
-    const DashboardRouter = lazy(() => import("./routes/dashboard-router"));
+    // const DashboardRouter = lazy(() => import("./routes/dashboard-router"));
     const Onboarding = lazy(() => import("./pages/onboarding"));
-    const ProtectedRoute = lazy(() => import("./contexts/protected-route"));
-    const DashboardLayout = lazy(
-        () => import("./components/global/dashboard-layout")
-    );
+    const ProtectedRoute = lazy(() => import("./routes/protected-route"));
     const MerchantRoutes = lazy(() => import("./routes/merchant-routes"));
     const BuyerRoutes = lazy(() => import("./routes/buyer-routes"));
 
     return (
         <Router>
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense
+                fallback={
+                    <div className="h-screen flex flex-col justify-center items-center">
+                        <Spinner />
+                    </div>
+                }
+            >
                 <Routes>
+                    {/* Public Routes */}
                     <Route element={<PublicLayout />}>
                         <Route
                             path="/"
@@ -59,6 +66,8 @@ export default function App() {
                             element={<Unauthorized />}
                         />
                     </Route>
+
+                    {/* Protected Routes */}
                     <Route
                         element={
                             <ProtectedRoute

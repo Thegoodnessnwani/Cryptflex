@@ -7,9 +7,9 @@ export default function ProtectedRoute({
 }: {
     allowedRoles: string[];
 }) {
-    const { userLoggedIn, loading, userFullData, currentUser } = useAuth();
+    const { userLoggedIn, loading, userFullData } = useAuth();
 
-    console.log(loading ? "Loading..." : userFullData, currentUser?.uid);
+    // console.log(loading ? "Loading..." : userFullData, currentUser?.uid);
 
     if (loading) {
         return <div>Loading...</div>;

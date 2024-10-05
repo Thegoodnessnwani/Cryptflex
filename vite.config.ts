@@ -10,4 +10,17 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  // define: {
+  //   'global': {},
+  //   'process.env': {},
+  // },
+  // define: {
+  //   'global': {},
+  // },
+  // build: {
+  //   rollupOptions: {
+  //     external: ['global'],
+  //   },
+  // },
+  // define: process.env.NODE_ENV === 'development' ? { global: 'window' } : {}
 })
