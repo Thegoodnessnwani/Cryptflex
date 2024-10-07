@@ -208,13 +208,13 @@ export default function ProductUploadForm() {
                 >
                     <VendorProfileForm />
                 </GlobalDialog> */}
-                <button
+                { /* <button
                     onClick={async () => {
                         await createVendor();
                     }}
                 >
                     Create Vendor
-                </button>
+                </button> */}
                 <div className="p-4 space-y-6 border-none bg-white/[.07] rounded-2xl">
                     <label className="text-[#84828A] font-bold text-base">
                         Information
