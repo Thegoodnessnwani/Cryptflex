@@ -24,10 +24,10 @@ import { useAuth } from "@/hooks/use-contexts";
 import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
 // import { storeVendor, uploadImageToBucket } from "@/firebase/db";
 // import { createVendor, VendorData } from "@/lib/partpay-sdk";
-import { toast } from "sonner";
+// import { toast } from "sonner";
 import Spinner from "../svg-components/spinner";
-import { useWallet } from "@/hooks/use-contexts";
-import Solflare from "@solflare-wallet/sdk";
+// import { useWallet } from "@/hooks/use-contexts";
+// import Solflare from "@solflare-wallet/sdk";
 
 enum VendorStatus {
     Active = "active", // Vendor is actively operating
@@ -49,7 +49,6 @@ export default function VendorProfileForm() {
 
     const {
         control,
-        handleSubmit,
         setValue,
         watch,
         formState: { errors, isSubmitting: isPending },
@@ -65,35 +64,35 @@ export default function VendorProfileForm() {
         }
     }, [watchProfileImage]);
 
-    async function createVendorProfile(data: VendorProfileFormType) {
-        // // // Upload image to storage bucket and get url
-        // const imageUrl = await uploadImageToBucket(data.profileImage);
-        // // Create vendor data and store in firestore
-        // const vendorData: VendorData = {
-        //     ...data,
-        //     image: imageUrl,
-        //     shopName: data.businessName,
-        //     description: data.businessDescription,
-        //     status: data.status as VendorStatus,
-        // };
-        // try {
-        //     const { publicKey, secretKey, signature } = await createVendor(
-        //         wallet as Solflare
-        //     );
-        //     const vendorFullData = {
-        //         ...vendorData,
-        //         publicKey,
-        //         secretKey,
-        //         blockchainSignature: signature,
-        //         createdAt: new Date().toISOString(),
-        //     };
-        //     await storeVendor(vendorFullData, publicKey);
-        //     toast.success("Vendor profile created successfully");
-        // } catch (error: any) {
-        //     toast.error("Failed to create vendor profile");
-        //     console.log(error);
-        // }
-    }
+    // async function createVendorProfile(data: VendorProfileFormType) {
+    //     // // // Upload image to storage bucket and get url
+    //     // const imageUrl = await uploadImageToBucket(data.profileImage);
+    //     // // Create vendor data and store in firestore
+    //     // const vendorData: VendorData = {
+    //     //     ...data,
+    //     //     image: imageUrl,
+    //     //     shopName: data.businessName,
+    //     //     description: data.businessDescription,
+    //     //     status: data.status as VendorStatus,
+    //     // };
+    //     // try {
+    //     //     const { publicKey, secretKey, signature } = await createVendor(
+    //     //         wallet as Solflare
+    //     //     );
+    //     //     const vendorFullData = {
+    //     //         ...vendorData,
+    //     //         publicKey,
+    //     //         secretKey,
+    //     //         blockchainSignature: signature,
+    //     //         createdAt: new Date().toISOString(),
+    //     //     };
+    //     //     await storeVendor(vendorFullData, publicKey);
+    //     //     toast.success("Vendor profile created successfully");
+    //     // } catch (error: any) {
+    //     //     toast.error("Failed to create vendor profile");
+    //     //     console.log(error);
+    //     // }
+    // }
 
     const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
@@ -109,7 +108,7 @@ export default function VendorProfileForm() {
     return (
         <Form {...form}>
             <form
-                onSubmit={handleSubmit(createVendorProfile)}
+                // onSubmit={handleSubmit(createVendorProfile)}
                 className="space-y-6"
             >
                 <FormField
@@ -278,7 +277,7 @@ export default function VendorProfileForm() {
                     type="button"
                     className="h-10 hover:bg-white hover:text-black"
                     disabled={isPending}
-                    onClick={handleSubmit(createVendorProfile)}
+                    // onClick={handleSubmit(createVendorProfile)}
                 >
                     {isPending ? <Spinner /> : "Create Vendor Profile"}
                 </Button>

@@ -29,26 +29,26 @@ import Spinner from "../svg-components/spinner";
 // } from "@/services/mutations";
 import { twMerge } from "tailwind-merge";
 import ButtonPrimary from "../global/button-primary";
-import GlobalDialog from "../global/global-dialog";
-import VendorProfileForm from "./vendor-profile-form";
+// import GlobalDialog from "../global/global-dialog";
+// import VendorProfileForm from "./vendor-profile-form";
 import {
     deleteImageFromBucket,
-    isUserVendor,
+    // isUserVendor,
     uploadImageToBucket,
 } from "@/firebase/db";
-import { useAuth } from "@/hooks/use-contexts";
-import { createVendor } from "@/lib/partpay-sdk";
+// import { useAuth } from "@/hooks/use-contexts";
+// import { createVendor } from "@/lib/partpay-sdk";
 
 const MAX_FILE_SIZE = 2 * 1024 * 1024;
 const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/jpg"];
 
 export default function ProductUploadForm() {
-    const [isOpen, setIsOpen] = useState(false);
+    // const [isOpen, setIsOpen] = useState(false);
 
     const [isImageUploading, setIsImageUploading] = useState(false);
     const [isImageDeleting, setIsImageDeleting] = useState(false);
 
-    const { currentUser } = useAuth();
+    // const { currentUser } = useAuth();
 
     // const { mutateAsync: uploadImage, isPending: isImageUploadPending } =
     //     useImageUploadMutation();
@@ -145,13 +145,13 @@ export default function ProductUploadForm() {
 
     async function onFormSubmit(data: ProductUploadFormType) {
         console.log(data);
-        const isVendor = await isUserVendor(currentUser?.uid as string);
+        // const isVendor = await isUserVendor(currentUser?.uid as string);
 
-        if (!isVendor) {
-            toast.info("Please create your vendor profile on-chain first");
-            setIsOpen(true);
-            return;
-        }
+        // if (!isVendor) {
+        //     toast.info("Please create your vendor profile on-chain first");
+        //     setIsOpen(true);
+        //     return;
+        // }
 
         // TODO: Upload equipment to blockchain
         // TODO: Upload product to firestore

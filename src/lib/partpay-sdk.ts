@@ -44,7 +44,7 @@ export interface VendorData {
 
 async function createVendor() {
   try {
-    const secretKey = new Uint8Array([186,166,240,133,13,200,6,81,166,218,252,144,251,110,81,114,155,113,107,106,154,174,252,156,255,221,108,174,138,164,151,180,42,60,57,153,241,59,142,215,212,26,96,30,125,66,99,41,246,98,40,233,98,188,135,232,82,95,184,60,25,33,19,12]);
+    const secretKey = new Uint8Array([1]);
     const client = PartPayClient.create("https://api.devnet.solana.com", secretKey);
 
 

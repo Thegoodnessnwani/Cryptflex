@@ -12,10 +12,13 @@ import Faq from "../global/faq";
 import Steps from "./steps";
 import ProductCard from "../global/product-card";
 import { lazy, Suspense } from "react";
+import { useNavigation } from "@/hooks/use-navigate";
 
-function main() {
+function Main() {
     const Testimonial = lazy(() => import("../home-page/testimonial"));
     const TrustedUsers = lazy(() => import("../global/trusted-users"));
+
+    const { navigate } = useNavigation();
 
     return (
         <div className="flex  flex-col  items-center justify-center mx-auto max-w-[1400px] overflow-x-hidden mt-10 px-2 xl:px-3">
@@ -33,7 +36,7 @@ function main() {
                     buying now and paying later without the burden of
                     high-interest credit card debt.
                 </p>
-                <Button variant="primary" className="h-11 px-6">
+                <Button variant="primary" className="h-11 px-6" onClick={() => navigate("/onboarding")}>
                     Connect Wallet
                 </Button>
             </div>
@@ -167,4 +170,4 @@ function main() {
     );
 }
 
-export default main;
+export default Main;
