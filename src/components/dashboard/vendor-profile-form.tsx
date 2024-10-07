@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+// import "../../init";
 import { useForm } from "react-hook-form";
 import {
     Form,
@@ -21,10 +22,12 @@ import { useEffect, useState } from "react";
 import { getPhotoUrl } from "@/lib/utils";
 import { useAuth } from "@/hooks/use-contexts";
 import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
-import { storeVendor, uploadImageToBucket } from "@/firebase/db";
-import { createVendor, VendorData } from "@/lib/partpay-sdk";
+// import { storeVendor, uploadImageToBucket } from "@/firebase/db";
+// import { createVendor, VendorData } from "@/lib/partpay-sdk";
 import { toast } from "sonner";
 import Spinner from "../svg-components/spinner";
+import { useWallet } from "@/hooks/use-contexts";
+import Solflare from "@solflare-wallet/sdk";
 
 enum VendorStatus {
     Active = "active", // Vendor is actively operating
@@ -63,33 +66,33 @@ export default function VendorProfileForm() {
     }, [watchProfileImage]);
 
     async function createVendorProfile(data: VendorProfileFormType) {
-        // // Upload image to storage bucket and get url
-        const imageUrl = await uploadImageToBucket(data.profileImage);
-        // Create vendor data and store in firestore
-        const vendorData: VendorData = {
-            ...data,
-            image: imageUrl,
-            shopName: data.businessName,
-            description: data.businessDescription,
-            status: data.status as VendorStatus,
-        };
-        try {
-            const { publicKey, secretKey, signature } = await createVendor(
-                vendorData
-            );
-            const vendorFullData = {
-                ...vendorData,
-                publicKey,
-                secretKey,
-                blockchainSignature: signature,
-                createdAt: new Date().toISOString(),
-            };
-            await storeVendor(vendorFullData, publicKey);
-            toast.success("Vendor profile created successfully");
-        } catch (error: any) {
-            toast.error("Failed to create vendor profile");
-            console.log(error);
-        }
+        // // // Upload image to storage bucket and get url
+        // const imageUrl = await uploadImageToBucket(data.profileImage);
+        // // Create vendor data and store in firestore
+        // const vendorData: VendorData = {
+        //     ...data,
+        //     image: imageUrl,
+        //     shopName: data.businessName,
+        //     description: data.businessDescription,
+        //     status: data.status as VendorStatus,
+        // };
+        // try {
+        //     const { publicKey, secretKey, signature } = await createVendor(
+        //         wallet as Solflare
+        //     );
+        //     const vendorFullData = {
+        //         ...vendorData,
+        //         publicKey,
+        //         secretKey,
+        //         blockchainSignature: signature,
+        //         createdAt: new Date().toISOString(),
+        //     };
+        //     await storeVendor(vendorFullData, publicKey);
+        //     toast.success("Vendor profile created successfully");
+        // } catch (error: any) {
+        //     toast.error("Failed to create vendor profile");
+        //     console.log(error);
+        // }
     }
 
     const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {

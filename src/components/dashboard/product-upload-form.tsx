@@ -37,6 +37,7 @@ import {
     uploadImageToBucket,
 } from "@/firebase/db";
 import { useAuth } from "@/hooks/use-contexts";
+import { createVendor } from "@/lib/partpay-sdk";
 
 const MAX_FILE_SIZE = 2 * 1024 * 1024;
 const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/jpg"];
@@ -199,14 +200,21 @@ export default function ProductUploadForm() {
                 onSubmit={handleSubmit(onFormSubmit)}
                 className="space-y-6 lg:space-y-0 lg:grid lg:grid-cols-2 gap-x-10"
             >
-                <GlobalDialog
+                {/* <GlobalDialog
                     title="Create Vendor Profile"
                     description="Fill the details to create a vendor profile on chain"
                     isOpen={isOpen}
                     onOpenChange={setIsOpen}
                 >
                     <VendorProfileForm />
-                </GlobalDialog>
+                </GlobalDialog> */}
+                <button
+                    onClick={async () => {
+                        await createVendor();
+                    }}
+                >
+                    Create Vendor
+                </button>
                 <div className="p-4 space-y-6 border-none bg-white/[.07] rounded-2xl">
                     <label className="text-[#84828A] font-bold text-base">
                         Information

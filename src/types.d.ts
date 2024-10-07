@@ -1,0 +1,1 @@
+declare module '@partpay-libs/sdk';
